@@ -37,6 +37,12 @@ header .container {
     padding: 45px;
 }
 
+@media(max-width: 576px) {
+    header .container {
+        padding: 45px 20px;
+    }
+}
+
 header .container img {
     position: absolute;
     width: 100%;
@@ -63,6 +69,12 @@ header .container p {
 /* menu */
 main .menu-list {
     padding: 0 45px;
+}
+
+@media(max-width: 576px) {
+    main .menu-list {
+        padding: 0 20px;
+    }
 }
 
 main .menu-list .menu-list-item {
@@ -128,6 +140,12 @@ main .menu-list .menu-list-item .menu-list-item-text .price {
     padding: 45px;
 }
 
+@media(max-width: 576px) {
+    .order-list-container {
+        padding: 0;
+    }
+}
+
 .order-list-container .title {
     font-size: 28px;
     text-align: center;
@@ -136,6 +154,12 @@ main .menu-list .menu-list-item .menu-list-item-text .price {
 .order-list-container .container {
     padding: 45px;
     padding-top: 0;
+}
+
+@media(max-width: 576px) {
+    .order-list-container .container {
+        padding: 45px 20px;
+    }
 }
 
 .order-list-container .order-list .item {
