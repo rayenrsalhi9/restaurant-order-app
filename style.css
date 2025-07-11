@@ -191,9 +191,21 @@ main .menu-list .menu-list-item .menu-list-item-text .price {
     color: red;
 }
 
-.order-list-container .order-list .item .price {
+.order-list-container .order-list .item .prices-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
     margin-left: auto;
+    font-size: 18px;
+}
+
+.order-list-container .order-list .item .prices-container .quantity {
+    color: red;
+}
+
+.order-list-container .order-list .item .prices-container .price {
     font-size: 20px;
+    margin-left: 20px;
 }
 
 /* divider */

@@ -35,7 +35,12 @@ function renderOrder() {
             <div class="item">
                 <h2 class="name">${el.name}</h2>
                 <button class="remove-item-btn">remove</button>
-                <p class="price">$${el.price}</p>
+                <div class="prices-container">
+                    <p class="unity-price">$${el.price}</p>
+                    <p class="quantity">x${el.quantity}</p>
+                    <p class="price">$${el.price * el.quantity}</p>
+                </div>
+                
             </div>
         `).join('')
     renderTotal()
@@ -44,7 +49,7 @@ function renderOrder() {
 function renderTotal() {
     checkEmptyOrder()
     totalPrice.innerHTML = `$${
-        orderArr.reduce((total, curr) => total + curr.price, 0)
+        orderArr.reduce((total, curr) => total + (curr.price * curr.quantity), 0)
     }`
 }
 
@@ -56,6 +61,15 @@ function checkEmptyOrder() {
 
 function addItemToOrder(id) {
     const targetItem = menuArray.filter(el => el.id === id)[0]
-    orderArr.unshift(targetItem)
+    orderArr.filter(el => el.id === targetItem.id).length === 0 ?
+    orderArr.unshift({
+        ...targetItem,
+        quantity: 1
+    }) :
+    orderArr.map(el => {
+        el.id === targetItem.id ?
+        el.quantity += 1 :
+        el
+    })
     renderOrder()
 } 
