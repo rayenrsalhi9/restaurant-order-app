@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+    <!-- font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Jimy's Diner - Restaurant App</title>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <img src="/images/header.jpg" alt="">
+            <h1>Jimmy’s Diner</h1>
+            <p>The best burgers and pizzas in town.</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="menu-list">
+                <div class="menu-list-item">
+                    <img src="/images/pizza.png" alt="">
+                    <div class="menu-list-item-text">
+                        <h2 class="name">Pizza</h2>
+                        <p class="ingredients">pepperoni,mushrom,mozarella</p>
+                        <p class="price">$14</p>
+                    </div>
+                    <button class="add-item-btn">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+                <div class="menu-list-item">
+                    <img src="/images/burger.png" alt="">
+                    <div class="menu-list-item-text">
+                        <h2 class="name">Burger</h2>
+                        <p class="ingredients">beef,cheese,onion</p>
+                        <p class="price">$12</p>
+                    </div>
+                    <button class="add-item-btn">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+                <div class="menu-list-item">
+                    <img src="/images/soda.png" alt="">
+                    <div class="menu-list-item-text">
+                        <h2 class="name">Soda</h2>
+                        <p class="ingredients">coke,sprite,fanta</p>
+                        <p class="price">$2</p>
+                    </div>
+                    <button class="add-item-btn">
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="order-list-container">
+        <div class="container">
+            <h2 class="title">Your Order</h2>
+            <div class="order-list">
+                <div class="item">
+                    <h2 class="name">Pizza</h2>
+                    <button class="remove-item-btn">remove</button>
+                    <p class="price">$14</p>
+                </div>
+                <div class="item">
+                    <h2 class="name">Burger</h2>
+                    <button class="remove-item-btn">remove</button>
+                    <p class="price">$12</p>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="total-price-container">
+                <h2 class="title">Total price</h2>
+                <p class="total-price">$26</p>
+            </div>
+            <button class="complete-order-btn">Complete order</button>
+        </div>
+    </div>
+</body>
+</html>

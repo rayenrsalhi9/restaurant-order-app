@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Smythe&display=swap');
+
+:root {
+    --text-color-dark: #000000;
+    --text-color-mid: #8b8b8b;
+    --text-color-light: #ffffff;
+
+    --border-color: #D2D2D2;
+
+    --accent-color: #16db99;
+    --accent-text: #065F46;
+    --accent-bg: #ECFDF5;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+}
+
+body {
+    font-family: "Smythe", system-ui;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* header */
+header .container {
+    overflow: hidden;
+    position: relative;
+    color: var(--text-color-light);
+    padding: 45px;
+}
+
+header .container img {
+    position: absolute;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    left: 0px;
+    top: -153px;
+    z-index: -1;
+    object-fit: cover;
+}
+
+header .container h1 {
+    font-size: 39px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    text-shadow: 0 0 10px var(--text-color-dark);
+}
+
+header .container p {
+    font-size: 22px;
+    text-shadow: 0 0 10px var(--text-color-dark);
+}
+
+/* menu */
+main .menu-list {
+    padding: 0 45px;
+}
+
+main .menu-list .menu-list-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid var(--border-color);
+    padding: 45px 0;
+}
+
+main .menu-list .menu-list-item img {
+    width: 100%;
+    max-width: 70px;
+}
+
+main .menu-list .menu-list-item .add-item-btn {
+    font-size: 16px;
+    font-weight: 400;
+
+    background: none;
+    color: #3C3C3C;
+
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+
+    width: 50px;
+    aspect-ratio: 1;
+
+    margin-left: auto;
+
+    cursor: pointer;
+    transition: .6s ease;
+}
+
+main .menu-list .menu-list-item .add-item-btn:hover {
+    background-color: var(--border-color);
+    color: var(--text-color-dark);
+}
+
+main .menu-list .menu-list-item .menu-list-item-text {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+main .menu-list .menu-list-item .menu-list-item-text .name {
+    font-size: 28px;
+    color: var(--text-color-dark);
+}
+
+main .menu-list .menu-list-item .menu-list-item-text .ingredients {
+    font-size: 16px;
+    color: var(--text-color-mid);
+}
+
+main .menu-list .menu-list-item .menu-list-item-text .price {
+    font-size: 20px;
+    color: var(--text-color-dark);
+}
+
+/* order list */
+.order-list-container {
+    padding: 45px;
+}
+
+.order-list-container .title {
+    font-size: 28px;
+    text-align: center;
+}
+
+.order-list-container .container {
+    padding: 45px;
+    padding-top: 0;
+}
+
+.order-list-container .order-list .item {
+    display: flex;
+}
+
+.order-list-container .order-list .item:not(:first-of-type) {
+    margin-top: 10px;
+}
+
+.order-list-container .order-list .item .name {
+    font-size: 28px;
+    color: var(--text-color-dark);
+}
+
+.order-list-container .order-list .item .remove-item-btn {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #bbbbbb;
+    font-size: 12px;
+    background: none;
+    border: none;
+    display: inline-block;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: .6s ease;
+}
+
+.order-list-container .order-list .item .remove-item-btn:hover {
+    color: red;
+}
+
+.order-list-container .order-list .item .price {
+    margin-left: auto;
+    font-size: 20px;
+}
+
+/* divider */
+.order-list-container .divider {
+    height: 2px;
+    background: var(--text-color-dark);
+    margin: 20px 0 10px;
+}
+
+.order-list-container .total-price-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-list-container .total-price-container .title {
+    font-size: 28px;
+}
+
+.order-list-container .total-price-container .total-price {
+    font-size: 20px;
+}
+
+.order-list-container .complete-order-btn {
+    display: block;
+
+    border: none;
+    border-radius: 4px;
+
+    background: var(--accent-color);
+    color: var(--text-color-light);
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 600;
+
+    width: 100%;
+    max-width: 508px;
+    height: 60px;
+    margin-top: 45px;
+
+    cursor: pointer;
+    transition: .6s ease;
+}
+
+.order-list-container .complete-order-btn:hover {
+    background: var(--accent-text);
+}
