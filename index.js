@@ -1,8 +1,17 @@
-import { menuArray as menu } from "./data.js";
+import { menuArray as menu, menuArray } from "./data.js";
 
 const menuList = document.getElementById('menu-list')
+const orderList = document.getElementById('order-list')
+const orderListContainer = document.getElementById('order-list-container')
+const totalPrice = document.querySelector('.total-price-container .total-price')
+
+let orderArr = []
 
 renderMenu()
+
+document.addEventListener('click', e => {
+    e.target.dataset.addedMenuId && addItemToOrder(parseInt(e.target.dataset.addedMenuId))
+})
 
 function renderMenu() {
     menuList.innerHTML = menu.map(el => `
@@ -18,4 +27,35 @@ function renderMenu() {
                 </button>
             </div>
         `).join('')
+    checkEmptyOrder()
 }
+
+function renderOrder() {
+    orderList.innerHTML = orderArr.map(el => `
+            <div class="item">
+                <h2 class="name">${el.name}</h2>
+                <button class="remove-item-btn">remove</button>
+                <p class="price">$${el.price}</p>
+            </div>
+        `).join('')
+    renderTotal()
+}
+
+function renderTotal() {
+    checkEmptyOrder()
+    totalPrice.innerHTML = `$${
+        orderArr.reduce((total, curr) => total + curr.price, 0)
+    }`
+}
+
+function checkEmptyOrder() {
+    orderArr.length === 0 ?
+    orderListContainer.classList.add('hidden') :
+    orderListContainer.classList.remove('hidden')
+}
+
+function addItemToOrder(id) {
+    const targetItem = menuArray.filter(el => el.id === id)[0]
+    orderArr.unshift(targetItem)
+    renderOrder()
+} 

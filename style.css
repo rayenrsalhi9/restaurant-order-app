@@ -243,3 +243,7 @@ main .menu-list .menu-list-item .menu-list-item-text .price {
 .order-list-container .complete-order-btn:hover {
     background: var(--accent-text);
 }
+
+.hidden {
+    display: none;
+}
