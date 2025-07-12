@@ -11,6 +11,7 @@ renderMenu()
 
 document.addEventListener('click', e => {
     e.target.dataset.addedMenuId && addItemToOrder(parseInt(e.target.dataset.addedMenuId))
+    e.target.dataset.removedMenuId && removeItemFromOrder(parseInt(e.target.dataset.removedMenuId))
 })
 
 function renderMenu() {
@@ -34,7 +35,7 @@ function renderOrder() {
     orderList.innerHTML = orderArr.map(el => `
             <div class="item">
                 <h2 class="name">${el.name}</h2>
-                <button class="remove-item-btn">remove</button>
+                <button class="remove-item-btn" data-removed-menu-id=${el.id}>remove</button>
                 <div class="prices-container">
                     <p class="unity-price">$${el.price}</p>
                     <p class="quantity">x${el.quantity}</p>
@@ -73,3 +74,8 @@ function addItemToOrder(id) {
     })
     renderOrder()
 } 
+
+function removeItemFromOrder(id) {
+    orderArr = orderArr.filter(el => el.id !== id)
+    renderOrder()
+}
