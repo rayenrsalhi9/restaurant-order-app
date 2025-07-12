@@ -4,8 +4,9 @@ const menuList = document.getElementById('menu-list')
 const orderList = document.getElementById('order-list')
 const orderListContainer = document.getElementById('order-list-container')
 const totalPrice = document.querySelector('.total-price-container .total-price')
-
 const orderModalContainer = document.getElementById('order-modal-container')
+const modalForm = document.getElementById('modal-form')
+const confirmedOrderMsg = document.getElementById('confirmed-order-msg')
 
 let orderArr = []
 
@@ -16,6 +17,21 @@ document.addEventListener('click', e => {
     e.target.dataset.removedMenuId && removeItemFromOrder(parseInt(e.target.dataset.removedMenuId))
     e.target.id === 'complete-order-btn' && showModal()
     e.target.id === 'close-modal-btn' && hideModal()
+})
+
+modalForm.addEventListener('submit', e => {
+    e.preventDefault()
+
+    const modalFormData = new FormData(modalForm)
+    const name = modalFormData.get('name')
+    const cardNumber = modalFormData.get('card-number')
+    const cvv = modalFormData.get('cvv')
+    
+    modalForm.reset()
+    hideModal()
+    orderArr = []
+    checkEmptyOrder()
+    renderOrderConfirmationMessage(name)
 })
 
 function renderMenu() {
@@ -33,6 +49,7 @@ function renderMenu() {
             </div>
         `).join('')
     checkEmptyOrder()
+    confirmedOrderMsg.classList.add('hidden')
 }
 
 function renderOrder() {
@@ -90,4 +107,12 @@ function showModal() {
 
 function hideModal() {
     orderModalContainer.classList.add('hidden')
+}
+
+function renderOrderConfirmationMessage(name = 'User') {
+    confirmedOrderMsg.textContent = `Thanks, ${name}! Your order is on its way!`
+    confirmedOrderMsg.classList.remove('hidden')
+    setTimeout(() => {
+        confirmedOrderMsg.classList.add('hidden')
+    }, 5000)
 }

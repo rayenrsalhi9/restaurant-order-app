@@ -45,6 +45,11 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="confirmed-order-msg hidden" id="confirmed-order-msg">  
+        </div>
+    </div>
+
     <div class="order-modal-container hidden" id="order-modal-container">
         <div class="order-modal">
             <h3 class="title">Enter card details</h3>
@@ -56,6 +61,7 @@
                     aria-label="Enter your name" 
                     placeholder="Enter your name"
                     minlength="3"
+                    required
                 >
                 <input 
                     type="number" 
@@ -65,6 +71,7 @@
                     placeholder="Enter card number"
                     min="10000000"
                     max="99999999"
+                    required
                 >
                 <input 
                     type="number" 
@@ -74,6 +81,7 @@
                     placeholder="Enter CVV"
                     min="100"
                     max="999"
+                    required
                 >
                 <button type="submit" class="btn modal-submit-btn" id="modal-submit-btn">Pay order</button>
                 <button type="button" class="btn close-modal-btn" id="close-modal-btn">Cancel payment</button>
