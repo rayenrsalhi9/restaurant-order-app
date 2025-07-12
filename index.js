@@ -24,8 +24,6 @@ modalForm.addEventListener('submit', e => {
 
     const modalFormData = new FormData(modalForm)
     const name = modalFormData.get('name')
-    const cardNumber = modalFormData.get('card-number')
-    const cvv = modalFormData.get('cvv')
     
     modalForm.reset()
     hideModal()
@@ -34,6 +32,7 @@ modalForm.addEventListener('submit', e => {
     renderOrderConfirmationMessage(name)
 })
 
+// render functions
 function renderMenu() {
     menuList.innerHTML = menu.map(el => `
             <div class="menu-list-item">
@@ -75,6 +74,7 @@ function renderTotal() {
     }`
 }
 
+// order utils
 function checkEmptyOrder() {
     orderArr.length === 0 ?
     orderListContainer.classList.add('hidden') :
@@ -101,6 +101,7 @@ function removeItemFromOrder(id) {
     renderOrder()
 }
 
+// modal & order confirmation message
 function showModal() {
     orderModalContainer.classList.remove('hidden')
 }
