@@ -1,4 +1,4 @@
-import { menuArray as menu, menuArray } from "./data.js";
+import { menuArray as menu } from "./data.js";
 
 const menuList = document.getElementById('menu-list')
 const orderList = document.getElementById('order-list')
@@ -82,17 +82,11 @@ function checkEmptyOrder() {
 }
 
 function addItemToOrder(id) {
-    const targetItem = menuArray.filter(el => el.id === id)[0]
-    orderArr.filter(el => el.id === targetItem.id).length === 0 ?
-    orderArr.unshift({
-        ...targetItem,
-        quantity: 1
-    }) :
-    orderArr.map(el => {
-        el.id === targetItem.id ?
-        el.quantity += 1 :
-        el
-    })
+    const targetItem = menu.find(el => el.id === id)
+    const targetItemInOrder = orderArr.find(el => el.id === targetItem.id)
+    targetItemInOrder ?
+    targetItemInOrder.quantity ++ :
+    orderArr.unshift({...targetItem,quantity: 1})
     renderOrder()
 } 
 
