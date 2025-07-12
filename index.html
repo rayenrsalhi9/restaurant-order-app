@@ -41,7 +41,43 @@
                 <h2 class="title">Total price</h2>
                 <p class="total-price"></p>
             </div>
-            <button class="complete-order-btn">Complete order</button>
+            <button class="btn complete-order-btn">Complete order</button>
+        </div>
+    </div>
+
+    <div class="order-modal-container hidden">
+        <div class="order-modal">
+            <h3 class="title">Enter card details</h3>
+            <form id="modal-form">
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    aria-label="Enter your name" 
+                    placeholder="Enter your name"
+                    minlength="3"
+                >
+                <input 
+                    type="number" 
+                    id="card-number" 
+                    name="card-number" 
+                    aria-label="Enter card number" 
+                    placeholder="Enter card number"
+                    min="10000000"
+                    max="99999999"
+                >
+                <input 
+                    type="number" 
+                    id="cvv" 
+                    name="cvv" 
+                    aria-label="Enter CVV" 
+                    placeholder="Enter CVV"
+                    min="100"
+                    max="999"
+                >
+                <button type="submit" class="btn modal-submit-btn" id="modal-submit-btn">Pay order</button>
+                <button type="button" class="btn close-modal-btn" id="close-modal-btn">Cancel payment</button>
+            </form>
         </div>
     </div>
 
