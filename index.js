@@ -5,6 +5,8 @@ const orderList = document.getElementById('order-list')
 const orderListContainer = document.getElementById('order-list-container')
 const totalPrice = document.querySelector('.total-price-container .total-price')
 
+const orderModalContainer = document.getElementById('order-modal-container')
+
 let orderArr = []
 
 renderMenu()
@@ -12,6 +14,8 @@ renderMenu()
 document.addEventListener('click', e => {
     e.target.dataset.addedMenuId && addItemToOrder(parseInt(e.target.dataset.addedMenuId))
     e.target.dataset.removedMenuId && removeItemFromOrder(parseInt(e.target.dataset.removedMenuId))
+    e.target.id === 'complete-order-btn' && showModal()
+    e.target.id === 'close-modal-btn' && hideModal()
 })
 
 function renderMenu() {
@@ -78,4 +82,12 @@ function addItemToOrder(id) {
 function removeItemFromOrder(id) {
     orderArr = orderArr.filter(el => el.id !== id)
     renderOrder()
+}
+
+function showModal() {
+    orderModalContainer.classList.remove('hidden')
+}
+
+function hideModal() {
+    orderModalContainer.classList.add('hidden')
 }
